@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的 AI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      color: #222;
+    }
 
+    header {
+      padding: 24px 20px;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px 20px 100px;
+    }
+
+    .welcome {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .welcome h2 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px;
+      background: white;
+      display: flex;
+      gap: 8px;
+      box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+    }
+
+    input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 12px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+    }
+
+    .message {
+      margin-top: 15px;
+      padding: 14px;
+      background: #eee;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🤖 我的 AI</h1>
+</header>
+
+<main id="chat">
+  <div class="welcome">
+    <h2>你好 👋</h2>
+    <p>这是我的第一个 AI App。</p>
+    <p>以后这里会变成真正的 AI 助手。</p>
+  </div>
+</main>
+
+<footer>
+  <input id="message" placeholder="输入你的问题……">
+  <button onclick="sendMessage()">发送</button>
+</footer>
+
+<script>
+  function sendMessage() {
+    const input = document.getElementById("message");
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    const chat = document.getElementById("chat");
+
+    const userMessage = document.createElement("div");
+    userMessage.className = "message";
+    userMessage.innerText = "你： " + message;
+
+    chat.appendChild(userMessage);
+
+    input.value = "";
+  }
+</script>
+
+</body>
+</html>
